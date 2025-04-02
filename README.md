@@ -1,6 +1,6 @@
 # NLP Learning Notes
 
-### Quick Start
+### Running The Notebooks using Docker
 
 1. Build the Docker image
 ```
@@ -8,11 +8,15 @@ docker build -t nlp .
 ```
 2. Run the Container
 ```
-docker run -it nlp
+docker run -it -p 8888:8888 -v <host_path>:<container_path> <image_name>
+
+ex:
+docker run -it -p 8888:8888 -v /home/user/my_notebooks:/app/notebooks nlp
 ```
-    The `-it` flags are essential:
--   i (interactive): Keeps the standard input open, allowing you to type commands.
--   t: provides a terminal-like interface.
+-   `-i` (interactive): Keeps the standard input open, allowing you to type commands.
+-   `-t`: provides a terminal-like interface.
+-   `-p 8888:8888`: Maps port 8888 for Jupyter Lab.
+-   `-v /home/user/my_notebooks:/app/notebooks`: Mounts the `/home/user/my_notebooks` directory on your host to the `/app/notebooks` directory inside the container.
 
 
     You'll now be inside the container's Bash shell. You can run any Bash commands and use the Python environment you set up in the Dockerfile.
