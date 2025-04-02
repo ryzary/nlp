@@ -1,0 +1,9 @@
+jupyterlab
+numpy
+pandas
+scikit-learn
+nltk
+spacy
+transformers
+torch
+tensorflow
